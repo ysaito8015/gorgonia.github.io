@@ -59,5 +59,19 @@ func main() {
 
 プログラムを実行するとこの結果が出力されるはずです： `4.5`
 
-詳細については[Hello Worldチュートリアル](/tutorials/hello-world)を参照してください。
+もし上記の出力の代わりに次のエラーメッセージが表示された場合は：
+
+```go
+panic: Something in this program imports go4.org/unsafe/assume-no-moving-gc to declare that it assumes a non-moving garbage collector, but your version of go4.org/unsafe/assume-no-moving-gc hasn't been updated to assert that it's safe against the go1.19 runtime. If you want to risk it, run with environment variable ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH=go1.19 set. Notably, if go1.19 adds a moving garbage collector, this program is unsafe to use.
+```
+
+シェル上で次のコマンドを実行してください。
+
+```bash
+$ export ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH=go1.19
+```
+
+そして、Go プログラムを再度実行してください。
+
+詳細については[Hello Worldチュートリアル](/ja/tutorials/hello-world)を参照してください。
 
